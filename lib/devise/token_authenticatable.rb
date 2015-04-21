@@ -10,6 +10,16 @@ module Devise
     # Settings for reseting tokens
     @@should_reset_token_on_save = true
     @@should_ensure_token_on_save = true
+    
+    
+      
+      def self.should_reset_authentication_token?
+        @@should_reset_token_on_save
+      end
+      
+      def self.should_ensure_authentication_token?
+        @@should_ensure_token_on_save
+      end
 
     # Enable the configuration of the TokenAuthenticatable
     # strategy with a block:
