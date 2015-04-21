@@ -39,16 +39,8 @@ module Devise
 
       Devise::Models.config(self)
       included do
-        before_save :reset_authentication_token if should_reset_authentication_token?
-        before_save :ensure_authentication_token if should_ensure_authentication_token?
-      end
-      
-      def self.should_reset_authentication_token?
-        Devise::TokenAuthenticatable.should_reset_token_on_save
-      end
-      
-      def self.should_ensure_authentication_token?
-        Devise::TokenAuthenticatable.should_ensure_token_on_save
+        before_save :reset_authentication_token if Devise::TokenAuthenticatable.should_reset_authentication_token?
+        before_save :ensure_authentication_token if Devise::TokenAuthenticatable.should_ensure_authentication_token?
       end
       
       def self.required_fields(klass)
