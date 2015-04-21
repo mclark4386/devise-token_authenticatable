@@ -6,6 +6,9 @@ module Devise
     # Authentication token params key name of choice. E.g. /users/sign_in?some_key=...
     mattr_accessor :token_authentication_key
     @@token_authentication_key = :auth_token
+    
+    # Settings for reseting tokens
+    @@should_reset_token_on_save = true
 
     # Enable the configuration of the TokenAuthenticatable
     # strategy with a block:
