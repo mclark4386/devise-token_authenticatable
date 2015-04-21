@@ -48,7 +48,7 @@ module Devise
       end
       
       def should_ensure_authentication_token?
-        Devise::TokenAuthenticatable.should_reset_token_on_save
+        Devise::TokenAuthenticatable.should_ensure_token_on_save
       end
       
       def self.required_fields(klass)
