@@ -44,11 +44,11 @@ module Devise
       end
       
       def should_reset_authentication_token?
-        true
+        Devise::TokenAuthenticatable.should_reset_token_on_save
       end
       
       def should_ensure_authentication_token?
-        true
+        Devise::TokenAuthenticatable.should_reset_token_on_save
       end
       
       def self.required_fields(klass)
