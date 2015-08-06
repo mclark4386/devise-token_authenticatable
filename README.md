@@ -24,9 +24,10 @@ Or install it yourself as:
 
 *devise-token_authenticatable*  | *devise*
 -------------------------------:|---------
-0.1.0                           | ~> 3.2.0
-0.2.0                           | ~> 3.3.0
-0.3.0                           | ~> 3.4.0
+`~> 0.1`                        | `~> 3.2.0`
+`~> 0.2`                        | `~> 3.3.0`
+`~> 0.3`                        | `~> 3.4.0`
+`~> 0.4`                        | `~> 3.5.0`
 
 ## Usage
 
@@ -36,10 +37,22 @@ Add `:token_authenticatable` to your devise model:
       devise :database_authenticatable, :token_authenticatable
     end
 
-The authentication key name used by this module defaults to `auth_token`. Use the following configuration (e.g., in a Rails initializer) to alter the name:
+## Configuration
+
+This gem can be configured as shown in the following:
 
     Devise::TokenAuthenticatable.setup do |config|
+      # set the authentication key name used by this module,
+      # defaults to :auth_token
       config.token_authentication_key = :other_key_name
+
+      # enable reset of the authentication token before the model is saved,
+      # defaults to false
+      config.should_reset_authentication_token = true
+
+      # enables the setting of the authentication token - if not already - before the model is saved,
+      # defaults to false
+      config.should_ensure_authentication_token = true
     end
 
 ## Documentation
